@@ -125,7 +125,7 @@ void Shuffling(RandomIt first, RandomIt last, URBG&& g)
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
-void ControlPanel()
+     void ControlPanel()
 {
 
 	{
@@ -135,19 +135,27 @@ void ControlPanel()
 		ImGui::Text("Array length:   ");
 		ImGui::SameLine();
 		ImGui::PushItemWidth(150);
+		
 		if (ImGui::SliderInt("", &SizeSlider, 1, WindowWidth))
-			elements.Init(SizeSlider);
+		     	elements.Init(SizeSlider);
+			
 		ImGui::PopItemWidth();
 
 		ImGui::Text("Delay:          ");
 		ImGui::SameLine();
+		
 		ImGui::PushItemWidth(150);
+		
 		ImGui::SliderFloat("Sec", &Delay, 0, 1);
+		
 		ImGui::PopItemWidth();
 
 		ImGui::NewLine();
+		
 		ImGui::Text("               ");
+		
 		ImGui::SameLine();
+		
 		if (ImGui::Button("Shuffle", { 96, 25 }))
 		{
 			random_device rd;
@@ -168,27 +176,26 @@ void ControlPanel()
 		ImGui::SameLine();
 
 		if (ImGui::Button("Selection sort", { 102, 25 }))
-			CurrentState = "selection sort";
+		    	CurrentState = "selection sort";
 
 
 		if (ImGui::Button("Insertion sort", { 102, 25 }))
-			CurrentState = "insertion sort";
+		    	CurrentState = "insertion sort";
 
-		ImGui::SameLine();
+	     	ImGui::SameLine();
 
 		if (ImGui::Button("Merge sort", { 102, 25 }))
-			CurrentState = "merge sort";
+		     	CurrentState = "merge sort";
 
 		ImGui::SameLine();
 
 		if (ImGui::Button("Quick sort", { 102, 25 }))
-			CurrentState = "quick sort";
+		    	CurrentState = "quick sort";
 
 		ImGui::End();
 	}
 
 }
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 void DrawData(bool Sleeping = true)
@@ -345,6 +352,164 @@ void QuickSort(vector<Element>& v)
 	DrawDataElementByElementWithFinalColor();
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+void SelectionSort(vector<Element>& v)
+{
+	int mn_idx = 0;
+	for (int pass = 0;pass < v.size();pass++)
+	{
+		mn_idx = pass;
+ 
+		v[mn_idx].Color = ComparingColor;;
+		DrawData();
+		int i;
+		for (i = pass + 1; i < v.size(); i++) {
+ 
+			v[i].Color = ComparingColor;;
+			DrawData();
+ 
+			if (v[mn_idx].Height > v[i].Height) {
+ 
+				v[mn_idx].Color = InitialColor;;
+				mn_idx = i;
+				v[mn_idx].Color = ComparingColor;;
+				DrawData();
+			}
+			if (i != mn_idx) {
+				v[i].Color = InitialColor;;
+				DrawData();
+			}
+ 
+		}
+ 
+		swap(v[pass].Height, v[mn_idx].Height);
+		v[mn_idx].Color = InitialColor;
+		v[pass].Color = FinalColor;
+ 
+		DrawData();
+ 
+ 
+	}
+ 
+ 
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+ 
+ 
+void InsertionSort(vector<Element>& v)
+{
+ 
+ 
+ 
+	for (int pass = 0; pass < v.size(); pass++) {
+ 
+		int curv = v[pass].Height, idx = pass;
+		v[idx].Color = PivotColor;
+		DrawData();
+ 
+		for (;idx > 0 && v[idx].Height < v[idx - 1].Height; )
+		{
+			if (idx != pass)v[idx].Color = ComparingColor;
+			v[idx - 1].Color = ComparingColor;
+			DrawData();
+ 
+			swap(v[idx].Height, v[idx - 1].Height);
+			idx--;
+ 
+ 
+ 
+			if (idx + 1 != pass) v[idx + 1].Color = InitialColor;
+			v[idx].Color = InitialColor;
+ 
+			DrawData();
+ 
+		}
+		v[idx].Color = InitialColor;
+		DrawData();
+ 
+		v[idx].Height = curv;
+ 
+	}
+ 
+ 
+	DrawDataElementByElementWithFinalColor();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+ 
+void Merge(vector<Element>& v, int start, int mid, int end)
+{
+	int start2 = mid + 1;
+ 
+	if (v[mid].Height <= v[start2].Height) {
+		return;
+	}
+ 
+ 
+	while (start <= mid && start2 <= end) {
+ 
+ 
+		v[start].Color = ComparingColor;
+		v[start2].Color = ComparingColor;
+		int  save_s1 = start, save_s2 = start2;
+		DrawData();
+ 
+		if (v[start].Height <= v[start2].Height) {
+ 
+			start++;
+		}
+		else {
+			int value = v[start2].Height;
+			int index = start2;
+
+ 
+			while (index != start) {
+ 
+				swap(v[index].Height, v[index - 1].Height);
+				index--;
+
+ 
+			}
+ 
+			v[start].Height = value;
+			v[start].Color = PivotColor;
+			DrawData();
+			
+			start++;
+			mid++;
+			start2++;
+		}
+ 
+		v[save_s1].Color = InitialColor, v[save_s2].Color = InitialColor;
+		DrawData();
+	}
+}
+void MergeSortHelper(vector<Element>& v, int l, int r)
+{
+	if (l < r) {
+ 
+		
+		int m = l + (r - l) / 2;
+ 
+		
+		MergeSortHelper(v, l, m);
+		MergeSortHelper(v, m + 1, r);
+ 
+		Merge(v, l, m, r);
+	}
+}
+ 
+void MergeSort(vector<Element>& v) {
+	MergeSortHelper(v, 0, v.size() - 1);
+ 
+	DrawDataElementByElementWithFinalColor();
+ 
+}
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 void Display()
@@ -376,7 +541,20 @@ void Display()
 		QuickSort(elements.Vec);
 
 		CurrentState = "intro";
-	}
+	}else if (CurrentState == "selection sort")
+         {
+	SelectionSort(elements.Vec);
+	CurrentState = "intro";
+         }else if (CurrentState == "insertion sort") 
+         {
+	InsertionSort(elements.Vec);
+	CurrentState = "intro";
+         }
+         else if (CurrentState == "merge sort")
+           {
+	MergeSort(elements.Vec);
+	CurrentState = "intro";
+        }
 
 	ImGui::Render();
 	ImGuiIO& io = ImGui::GetIO();
@@ -386,6 +564,9 @@ void Display()
 
 	glutSwapBuffers();
 }
+
+
+
 
 
 int main(int argc, char** argv)
