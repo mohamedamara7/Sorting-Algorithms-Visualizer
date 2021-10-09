@@ -1,0 +1,32 @@
+﻿  main.cpp
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(28,52): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(29,49): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(30,47): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(31,43): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(32,43): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(64,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(65,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(200,15): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(344,36): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  opengl.vcxproj -> C:\Users\Lenovo\source\repos\project\opengl\x64\Debug\opengl.exe
+          1 file(s) copied.

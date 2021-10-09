@@ -1,0 +1,55 @@
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_impl_glut.cpp
+  imgui_impl_opengl2.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  main.cpp
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(28,52): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(29,49): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(30,47): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(31,43): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(32,43): warning C4305: 'initializing': truncation from 'double' to '_Ty'
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(64,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(65,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(78,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(83,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(198,15): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(203,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(214,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(217,11): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(244,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(249,11): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(278,15): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(317,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(337,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(407,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(435,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(442,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(480,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(482,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Lenovo\source\repos\project\opengl\opengl\main.cpp(506,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  opengl.vcxproj -> C:\Users\Lenovo\source\repos\project\opengl\Debug\opengl.exe
+          1 file(s) copied.
